@@ -4,7 +4,6 @@ import { colors } from "../styles/themes/colors";
 import { sizes } from "../styles/themes/sizes";
 import Logo, { LOGO_COLORS } from "../components/Logo";
 import GalaxyBackground from "../components/GalaxyBackground";
-import GlobalStyle from "../styles/base/global";
 import CardLogin from "../components/CardLogin";
 import Submit from "../components/Submit";
 import Margin from "../components/Margin";
@@ -70,7 +69,6 @@ function Login() {
           </form>
         </CardLogin>
       </GalaxyBackground>
-      <GlobalStyle />
     </Fragment>
   );
 }

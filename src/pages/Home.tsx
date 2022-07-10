@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import { NavLink } from "react-router-dom";
-import Submit from "../components/Submit";
 
 function Home() {
   return (

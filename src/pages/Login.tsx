@@ -20,12 +20,16 @@ function Login() {
   const [submit, setSubmit] = useState<boolean>(false);
 
   const isLogged = () => {
-    return userName === USERNAME && password === PASSWORD && submit;
+    return userName === USERNAME && password === PASSWORD;
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmit(true);
+    if (isLogged()) {
+      setSubmit(true);
+    } else {
+      alert("Username or password is incorrect!");
+    }
   };
 
   return (

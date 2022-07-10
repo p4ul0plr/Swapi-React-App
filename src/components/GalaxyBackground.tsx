@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import galaxyBackground from "../assets/images/galaxybackground.png";
+import galaxyBackground from "../assets/images/backcgrounds/galaxybackground.png";
+import Center from "../styles/base/grid";
 
-const GalaxyBackground = styled.div`
+const GalaxyBackground = styled(Center)`
   background-image: url(${galaxyBackground});
   background-size: contain;
   background-position: center;

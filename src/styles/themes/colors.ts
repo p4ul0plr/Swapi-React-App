@@ -1,0 +1,11 @@
+export const colors = {
+  PRIMARY: "#FFE81F",
+  SECONDARY: "#181818",
+  TERCIARY: "#484848",
+  INPUT_BACKGROUND: "#D9D9D9",
+  WHITE: "#FFFFFF",
+  BORDER: "#333333",
+  TEXT: "#AAAAAA",
+  TITLE_1: "#EDEC51",
+  TITLE_2: "#999999",
+};

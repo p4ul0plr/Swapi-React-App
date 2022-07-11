@@ -7,15 +7,11 @@ import { useFatchFilmList } from "../hooks/useFetchFilmList";
 import { FilmsResponse, MovieDataType } from "../interfaces/api";
 
 function Home() {
-  // const { data: films } = useFatch<FilmsResponse>(BASE_URL);
-  const { data: films } = useFatchFilmList();
-
-  const getIdFromUrl = (url: string) => {
-    return url.split("/").filter(Boolean).pop();
-  };
+  const { films, isFeching } = useFatchFilmList();
 
   return (
     <Fragment>
+      {isFeching && <p>Carregando...</p>}
       <nav>
         <ul>
           <li>

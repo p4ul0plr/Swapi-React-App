@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { colors } from "../styles/themes/colors";
 import { sizes } from "../styles/themes/sizes";
@@ -9,22 +9,18 @@ import Submit from "../components/Submit";
 import Margin from "../components/Margin";
 import Input from "../components/Input";
 import Text from "../components/Text";
-
-const USERNAME = "admin";
-const PASSWORD = "Admin123!";
+import MyContext from "../contexts/MyContext";
+import IsLogged from "../contexts/auth";
 
 function Login() {
-  const [userName, setUserName] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
   const [submit, setSubmit] = useState<boolean>(false);
-
-  const isLogged = () => {
-    return userName === USERNAME && password === PASSWORD;
-  };
+  const { userName, setUserName, password, setPassword }: any =
+    useContext(MyContext);
+  const isLogged = IsLogged();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (isLogged()) {
+    if (isLogged) {
       setSubmit(true);
     } else {
       alert("Username or password is incorrect!");
@@ -33,7 +29,7 @@ function Login() {
 
   return (
     <Fragment>
-      {isLogged() && submit && <Navigate to="/home" replace={true} />}
+      {isLogged && submit && <Navigate to="/home" replace={true} />}
       <GalaxyBackground>
         <CardLogin>
           <Logo $color={LOGO_COLORS.YELLOW} />

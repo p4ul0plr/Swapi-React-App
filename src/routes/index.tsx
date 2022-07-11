@@ -1,11 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
+import isLogged from "../contexts/auth";
 import Login from "../pages/Login";
-
-const Private = () => {
-  const signed = false;
-  return signed ? <Home /> : <Login />;
-};
+import Home from "../pages/Home";
 
 function RoutesApp() {
   return (
@@ -14,7 +10,7 @@ function RoutesApp() {
         <Route path="/" element={<Login />} />
         <Route path="*" element={<Login />} />
         <Route path="login" element={<Login />} />
-        <Route path="home" element={<Private />} />
+        <Route path="home" element={isLogged() ? <Home /> : <Login />} />
       </Routes>
     </BrowserRouter>
   );

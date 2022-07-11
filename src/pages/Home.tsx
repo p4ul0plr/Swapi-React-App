@@ -1,15 +1,21 @@
 import { Fragment, useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { BASE_URL } from "../api";
 import MyContext from "../contexts/MyContext";
+import { useFatch } from "../hooks/useFetch";
+import { useFatchFilmList } from "../hooks/useFetchFilmList";
+import { FilmsResponse, MovieDataType } from "../interfaces/api";
 
 function Home() {
-  const { userName, setUserName, password, setPassword }: any =
-    useContext(MyContext);
+  // const { data: films } = useFatch<FilmsResponse>(BASE_URL);
+  const { data: films } = useFatchFilmList();
+
+  const getIdFromUrl = (url: string) => {
+    return url.split("/").filter(Boolean).pop();
+  };
 
   return (
     <Fragment>
-      <h1>{userName}</h1>
-      <h1>{password}</h1>
       <nav>
         <ul>
           <li>
@@ -17,6 +23,16 @@ function Home() {
           </li>
         </ul>
       </nav>
+      <ul>
+        {films?.map((film) => {
+          return (
+            <li key={film.id}>
+              <Link to={`/films/${film.id}`}>{film.title}</Link>
+              <p>{film.description}</p>
+            </li>
+          );
+        })}
+      </ul>
     </Fragment>
   );
 }

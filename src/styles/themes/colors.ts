@@ -3,6 +3,7 @@ export const colors = {
   SECONDARY: "#181818",
   TERCIARY: "#484848",
   INPUT_BACKGROUND: "#D9D9D9",
+  SEARCH_BACKGROUND: "rgba(72, 72, 72, 0.5)",
   WHITE: "#FFFFFF",
   BORDER: "#333333",
   TEXT: "#AAAAAA",

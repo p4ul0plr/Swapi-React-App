@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import galaxyBackground from "../assets/images/backcgrounds/galaxybackground.png";
 import { Column } from "./Column";
+import { Container } from "./Container";
 import IconsList from "./IconsList";
 import Logo, { LOGO_COLORS } from "./Logo";
 import Margin from "./Margin";
@@ -37,9 +38,8 @@ const HeaderStyle = styled.header<HeaderStyleProps>`
 const HeaderColStyle = styled.div<HeaderColStyleProps>`
   display: flex;
   flex-direction: column;
-  justify-content: ${({ $directionX }) => $directionX};
-  align-items: ${({ $directionY }) => $directionY};
-  padding: 15px;
+  justify-content: ${({ $directionY }) => $directionY};
+  align-items: ${({ $directionX }) => $directionX};
   width: 100%;
   max-width: ${({ $maxWidth }) => ($maxWidth ? $maxWidth : "100%")};
   height: auto;
@@ -51,23 +51,37 @@ function Header() {
     <HeaderStyle $backgroundImage={galaxyBackground}>
       <Column>
         <Row>
-          <HeaderColStyle $maxWidth="20%">
-            <IconsList />
+          <HeaderColStyle $maxWidth="20%" $directionY="center">
+            <Container>
+              <IconsList />
+            </Container>
           </HeaderColStyle>
           <HeaderColStyle
             $maxWidth="60%"
             $directionY="center"
             $directionX="center"
           >
-            <Margin $y="20px">
-              <Logo $width="300px" $height="auto" $color={LOGO_COLORS.WHITE} />
-            </Margin>
+            <Container>
+              <Margin $y="20px">
+                <Logo
+                  $width="300px"
+                  $height="auto"
+                  $color={LOGO_COLORS.WHITE}
+                />
+              </Margin>
+            </Container>
           </HeaderColStyle>
-          <HeaderColStyle $maxWidth="20%" $directionY="end">
-            <Search $placeholder="SEARCH ..." />
-            <Margin $top="10px">
+          <HeaderColStyle
+            $maxWidth="20%"
+            $directionY="center"
+            $directionX="end"
+          >
+            {/* <Search $placeholder="SEARCH ..." /> */}
+            {/* <Margin $top="10px">
+            </Margin> */}
+            <Container>
               <SubMenu />
-            </Margin>
+            </Container>
           </HeaderColStyle>
         </Row>
         <Row>

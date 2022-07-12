@@ -18,6 +18,6 @@ export const Container = styled.div`
   }
 
   @media (min-width: 1200px) {
-    padding: 20px 0;
+    padding: 20px;
   }
 `;

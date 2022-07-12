@@ -6,6 +6,8 @@ import gitHubIcon from "../assets/icons/social/github.svg";
 import styled from "styled-components";
 
 const IconsListStyle = styled.div`
+  width: fit-content;
+
   li {
     list-style-type: none;
     float: left;

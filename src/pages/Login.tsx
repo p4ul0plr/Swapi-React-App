@@ -11,6 +11,8 @@ import Input from "../components/Input";
 import Text from "../components/Text";
 import MyContext from "../contexts/MyContext";
 import IsLogged from "../contexts/auth";
+import { Container } from "../components/Container";
+import { Alignment } from "../components/Alignment";
 
 function Login() {
   const [submit, setSubmit] = useState<boolean>(false);
@@ -31,39 +33,43 @@ function Login() {
     <Fragment>
       {isLogged && submit && <Navigate to="/home" replace={true} />}
       <GalaxyBackground>
-        <CardLogin>
-          <Logo $height="auto" $width="420px" $color={LOGO_COLORS.YELLOW} />
-          <Margin $top="40px">
-            <Text $size={sizes.XL} $color={colors.TITLE_1} $center>
-              Enter your username and password
-            </Text>
-          </Margin>
-          <form onSubmit={handleSubmit}>
-            <Margin $top="30px">
-              <Input
-                value={userName}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                  setUserName(event.target.value)
-                }
-                $placeholder="USERNAME"
-                $type="text"
-              />
+        <Margin $all="20px">
+          <CardLogin>
+            <Alignment $directionX="center">
+              <Logo $height="auto" $width="420px" $color={LOGO_COLORS.YELLOW} />
+            </Alignment>
+            <Margin $top="40px">
+              <Text $size={sizes.XL} $color={colors.TITLE_1} $center>
+                Enter your username and password
+              </Text>
             </Margin>
-            <Margin $top="30px">
-              <Input
-                value={password}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                  setPassword(event.target.value)
-                }
-                $placeholder="PASSWORD"
-                $type="password"
-              />
-            </Margin>
-            <Margin $top="30px">
-              <Submit $value="LOGIN" />
-            </Margin>
-          </form>
-        </CardLogin>
+            <form onSubmit={handleSubmit}>
+              <Margin $top="30px">
+                <Input
+                  value={userName}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                    setUserName(event.target.value)
+                  }
+                  $placeholder="USERNAME"
+                  $type="text"
+                />
+              </Margin>
+              <Margin $top="30px">
+                <Input
+                  value={password}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                    setPassword(event.target.value)
+                  }
+                  $placeholder="PASSWORD"
+                  $type="password"
+                />
+              </Margin>
+              <Margin $top="30px">
+                <Submit $value="LOGIN" />
+              </Margin>
+            </form>
+          </CardLogin>
+        </Margin>
       </GalaxyBackground>
     </Fragment>
   );

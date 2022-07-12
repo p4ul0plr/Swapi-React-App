@@ -18,15 +18,14 @@ function Home() {
         {isFeching && <Loader />}
         <Container>
           <Grid>
-            {films?.map((film) => {
+            {films?.map((film, index) => {
               return (
-                <li key={film.id}>
-                  <FilmCard
-                    $id={film.id}
-                    $descriptiom={film.description}
-                    $title={film.title}
-                  />
-                </li>
+                <FilmCard
+                  key={index}
+                  $id={film.id}
+                  $description={film.description}
+                  $title={film.title}
+                />
               );
             })}
           </Grid>

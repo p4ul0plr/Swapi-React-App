@@ -1,16 +1,14 @@
 import { Fragment, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { BASE_URL } from "../api";
-import MyContext from "../contexts/MyContext";
-import { useFatch } from "../hooks/useFetch";
+import Header from "../components/Header";
 import { useFatchFilmList } from "../hooks/useFetchFilmList";
-import { FilmsResponse, MovieDataType } from "../interfaces/api";
 
 function Home() {
   const { films, isFeching } = useFatchFilmList();
 
   return (
     <Fragment>
+      <Header />
       {isFeching && <p>Carregando...</p>}
       <nav>
         <ul>

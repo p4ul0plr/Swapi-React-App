@@ -11,12 +11,17 @@ export const LOGO_COLORS = {
 
 interface LogoProps {
   $color: string;
+  $width: string;
+  $height: string;
 }
 
 const Logo = styled.img.attrs((props: LogoProps) => ({
   src: props.$color,
-  width: "420px",
-  height: "auto",
-}))<LogoProps>``;
+  width: props.$width,
+  height: props.$height,
+}))<LogoProps>`
+  width: inherit;
+  max-width: ${({ $width }) => $width};
+`;
 
 export default Logo;

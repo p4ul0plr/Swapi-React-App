@@ -1,6 +1,8 @@
 import { Fragment, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Loader from "../components/Loader";
 import { useFatchFilmList } from "../hooks/useFetchFilmList";
 
 function Home() {
@@ -9,7 +11,7 @@ function Home() {
   return (
     <Fragment>
       <Header />
-      {isFeching && <p>Carregando...</p>}
+      {isFeching && <Loader />}
       <nav>
         <ul>
           <li>
@@ -27,6 +29,7 @@ function Home() {
           );
         })}
       </ul>
+      <Footer />
     </Fragment>
   );
 }

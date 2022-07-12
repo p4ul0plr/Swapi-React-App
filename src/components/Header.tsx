@@ -25,13 +25,13 @@ const HeaderStyle = styled.header<HeaderStyleProps>`
   flex-direction: row;
   width: 100%;
   background-image: url(${({ $backgroundImage }) => $backgroundImage});
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: repeat;
 
-  position: sticky;
+  /* position: sticky;
   top: 0;
-  left: 0;
+  left: 0; */
 `;
 
 const HeaderColStyle = styled.div<HeaderColStyleProps>`

@@ -1,6 +1,6 @@
 import { useFatchFilmList } from "../hooks/useFetchFilmList";
 import { Fragment } from "react";
-import { Body } from "../components/Body";
+import Body from "../components/Body";
 import { Grid } from "../components/Grid";
 import FilmCard from "../components/FilmCard";
 import Footer from "../components/Footer";
@@ -15,8 +15,9 @@ function Home() {
     <Fragment>
       <Header />
       <Body>
-        {isFeching && <Loader />}
-        <Container>
+        {isFeching ? (
+          <Loader />
+        ) : (
           <Grid>
             {films?.map((film, index) => {
               return (
@@ -29,7 +30,7 @@ function Home() {
               );
             })}
           </Grid>
-        </Container>
+        )}
       </Body>
       <Footer />
     </Fragment>

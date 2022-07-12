@@ -1,5 +1,6 @@
 import { Fragment, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import FilmCard from "../components/FilmCard";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Loader from "../components/Loader";
@@ -12,19 +13,15 @@ function Home() {
     <Fragment>
       <Header />
       {isFeching && <Loader />}
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/login">LOGOUT</NavLink>
-          </li>
-        </ul>
-      </nav>
       <ul>
         {films?.map((film) => {
           return (
             <li key={film.id}>
-              <Link to={`/films/${film.id}`}>{film.title}</Link>
-              <p>{film.description}</p>
+              <FilmCard
+                $id={film.id}
+                $descriptiom={film.description}
+                $title={film.title}
+              />
             </li>
           );
         })}

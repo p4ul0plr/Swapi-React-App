@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import galaxyBackground from "../assets/images/backcgrounds/galaxybackground.png";
+import { Column } from "./Column";
 import IconsList from "./IconsList";
 import Logo, { LOGO_COLORS } from "./Logo";
 import Margin from "./Margin";
+import Menu from "./Menu";
+import { Row } from "./Row";
 import Search from "./Search";
+import SubMenu from "./SubMenu";
 
 interface HeaderColStyleProps {
   $background?: string;
@@ -24,11 +28,15 @@ const HeaderStyle = styled.header<HeaderStyleProps>`
   background-size: contain;
   background-position: center;
   background-repeat: repeat;
+
+  position: sticky;
+  top: 0;
+  left: 0;
 `;
 
 const HeaderColStyle = styled.div<HeaderColStyleProps>`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: ${({ $directionX }) => $directionX};
   align-items: ${({ $directionY }) => $directionY};
   padding: 15px;
@@ -41,17 +49,31 @@ const HeaderColStyle = styled.div<HeaderColStyleProps>`
 function Header() {
   return (
     <HeaderStyle $backgroundImage={galaxyBackground}>
-      <HeaderColStyle $maxWidth="20%">
-        <IconsList />
-      </HeaderColStyle>
-      <HeaderColStyle $maxWidth="60%" $directionY="center" $directionX="center">
-        <Margin $y="20px">
-          <Logo $width="300px" $height="auto" $color={LOGO_COLORS.WHITE} />
-        </Margin>
-      </HeaderColStyle>
-      <HeaderColStyle $maxWidth="20%" $directionX="end">
-        <Search $placeholder="SEARCH ..." />
-      </HeaderColStyle>
+      <Column>
+        <Row>
+          <HeaderColStyle $maxWidth="20%">
+            <IconsList />
+          </HeaderColStyle>
+          <HeaderColStyle
+            $maxWidth="60%"
+            $directionY="center"
+            $directionX="center"
+          >
+            <Margin $y="20px">
+              <Logo $width="300px" $height="auto" $color={LOGO_COLORS.WHITE} />
+            </Margin>
+          </HeaderColStyle>
+          <HeaderColStyle $maxWidth="20%" $directionY="end">
+            <Search $placeholder="SEARCH ..." />
+            <Margin $top="10px">
+              <SubMenu />
+            </Margin>
+          </HeaderColStyle>
+        </Row>
+        <Row>
+          <Menu />
+        </Row>
+      </Column>
     </HeaderStyle>
   );
 }

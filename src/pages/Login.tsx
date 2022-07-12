@@ -32,7 +32,7 @@ function Login() {
       {isLogged && submit && <Navigate to="/home" replace={true} />}
       <GalaxyBackground>
         <CardLogin>
-          <Logo $color={LOGO_COLORS.YELLOW} />
+          <Logo $height="auto" $width="420px" $color={LOGO_COLORS.YELLOW} />
           <Margin $top="40px">
             <Text $size={sizes.XL} $color={colors.TITLE_1} $center>
               Enter your username and password

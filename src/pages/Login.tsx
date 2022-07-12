@@ -4,7 +4,7 @@ import { colors } from "../styles/themes/colors";
 import { sizes } from "../styles/themes/sizes";
 import Logo, { LOGO_COLORS } from "../components/Logo";
 import GalaxyBackground from "../components/GalaxyBackground";
-import CardLogin from "../components/CardLogin";
+import LoginCard from "../components/LoginCard";
 import Submit from "../components/Submit";
 import Margin from "../components/Margin";
 import Input from "../components/Input";
@@ -34,7 +34,7 @@ function Login() {
       {isLogged && submit && <Navigate to="/home" replace={true} />}
       <GalaxyBackground>
         <Margin $all="20px">
-          <CardLogin>
+          <LoginCard>
             <Alignment $directionX="center">
               <Logo $height="auto" $width="420px" $color={LOGO_COLORS.YELLOW} />
             </Alignment>
@@ -68,7 +68,7 @@ function Login() {
                 <Submit $value="LOGIN" />
               </Margin>
             </form>
-          </CardLogin>
+          </LoginCard>
         </Margin>
       </GalaxyBackground>
     </Fragment>

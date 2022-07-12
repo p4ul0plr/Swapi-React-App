@@ -22,6 +22,10 @@ const Logo = styled.img.attrs((props: LogoProps) => ({
 }))<LogoProps>`
   width: inherit;
   max-width: ${({ $width }) => $width};
+  margin: auto;
+  @media (max-width: 767px) {
+    width: 80%;
+  }
 `;
 
 export default Logo;

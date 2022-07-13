@@ -5,5 +5,5 @@ export const sizes = {
   LG: "18px",
   XL: "20px",
   XL2: "22px",
-  XL3: "40px",
+  XL3: "28px",
 };

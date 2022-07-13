@@ -26,6 +26,7 @@ const Margin = styled.div<MarginProps>`
     if ($bottom) return "margin-bottom: " + $bottom + ";";
   }}
   display: flex;
+  flex-direction: column;
 `;
 
 export default Margin;

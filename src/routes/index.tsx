@@ -1,6 +1,13 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
 import { Suspense, lazy } from "react";
-import isLogged from "../contexts/auth";
+import isAuthenticated from "../contexts/auth";
+import PrivateRoute from "./PrivateRoute";
 
 const Loader = lazy(() => import("../components/Loader"));
 const Login = lazy(() => import("../pages/Login"));
@@ -15,9 +22,18 @@ function RoutesApp() {
           <Route path="/" element={<Login />} />
           <Route path="*" element={<Login />} />
           <Route path="/login" element={<Login />} />
-          {/* <Route path="/home" element={isLogged() ? <Home /> : <Login />} /> */}
-          <Route path="/home" element={<Home />} />
-          <Route path="/films/:id" element={<Film />} />
+          <Route
+            path="/home"
+            element={
+              <PrivateRoute>
+                <Home />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/films/:id"
+            element={isAuthenticated() ? <Film /> : <Login />}
+          />
         </Routes>
       </Suspense>
     </BrowserRouter>

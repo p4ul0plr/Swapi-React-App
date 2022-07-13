@@ -6,7 +6,9 @@ export type MovieDataType = {
 };
 
 export type MovieDetailType = {
+  id: number;
   title: string | null;
+  releaseDate: string | null;
   director: string | null;
   producer: string | null;
   description: string | null;

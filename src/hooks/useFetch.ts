@@ -18,7 +18,7 @@ export function useFatch<T = unknown>(url: string) {
       .finally(() => {
         setIsFeching(false);
       });
-  });
+  }, []);
 
   return { data, isFeching, error };
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Grid = styled.ul`
+export const Grid = styled.div`
   @media (max-width: 575px) {
     grid-template-columns: 1fr;
     display: grid;

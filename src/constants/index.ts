@@ -1,5 +1,10 @@
 import { MovieDetailType } from "../interfaces/api";
 
+export const USER = {
+  USERNAME: "admin",
+  PASSWORD: "Admin123!",
+};
+
 export const FILM_MOCK_DATA: MovieDetailType = {
   id: 3,
   title: "Something Title",

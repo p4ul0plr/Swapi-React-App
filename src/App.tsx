@@ -1,20 +1,15 @@
-import { Fragment, useState } from "react";
-import MyContext from "./contexts/MyContext";
+import { Fragment } from "react";
 import RoutesApp from "./routes";
 import GlobalStyle from "./styles/base/global";
 
 function App() {
-  const [userName, setUserName] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  localStorage.setItem("username", JSON.stringify(""));
+  localStorage.setItem("password", JSON.stringify(""));
 
   return (
     <Fragment>
-      <MyContext.Provider
-        value={{ userName, setUserName, password, setPassword }}
-      >
-        <RoutesApp />
-        <GlobalStyle />
-      </MyContext.Provider>
+      <RoutesApp />
+      <GlobalStyle />
     </Fragment>
   );
 }

@@ -10,7 +10,7 @@ import Margin from "../components/Margin";
 import Input from "../components/Input";
 import Text from "../components/Text";
 import MyContext from "../contexts/MyContext";
-import IsLogged from "../contexts/auth";
+import isAuthenticated from "../contexts/auth";
 import { Container } from "../components/Container";
 import { Alignment } from "../components/Alignment";
 
@@ -18,11 +18,11 @@ function Login() {
   const [submit, setSubmit] = useState<boolean>(false);
   const { userName, setUserName, password, setPassword }: any =
     useContext(MyContext);
-  const isLogged = IsLogged();
+  const logged: boolean = isAuthenticated();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (isLogged) {
+    if (logged) {
       setSubmit(true);
     } else {
       alert("Username or password is incorrect!");
@@ -31,7 +31,7 @@ function Login() {
 
   return (
     <Fragment>
-      {isLogged && submit && <Navigate to="/home" replace={true} />}
+      {logged && submit && <Navigate to="/home" replace={true} />}
       <GalaxyBackground>
         <Margin $all="20px">
           <LoginCard>

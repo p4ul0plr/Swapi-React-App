@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import MyContext from "./MyContext";
 
-function IsLogged() {
+function isAuthenticated() {
   const USER = {
     USERNAME: "admin",
     PASSWORD: "Admin123!",
@@ -11,4 +11,4 @@ function IsLogged() {
   return userName === USER.USERNAME && password === USER.PASSWORD;
 }
 
-export default IsLogged;
+export default isAuthenticated;

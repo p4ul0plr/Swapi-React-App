@@ -1,20 +1,25 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from "react";
 import isLogged from "../contexts/auth";
-import Login from "../pages/Login";
-import Home from "../pages/Home";
-import Film from "../pages/Film";
+
+const Loader = lazy(() => import("../components/Loader"));
+const Login = lazy(() => import("../pages/Login"));
+const Home = lazy(() => import("../pages/Home"));
+const Film = lazy(() => import("../pages/Film"));
 
 function RoutesApp() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="*" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        {/* <Route path="/home" element={isLogged() ? <Home /> : <Login />} /> */}
-        <Route path="/home" element={<Home />} />
-        <Route path="/films/:id" element={<Film />} />
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="*" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          {/* <Route path="/home" element={isLogged() ? <Home /> : <Login />} /> */}
+          <Route path="/home" element={<Home />} />
+          <Route path="/films/:id" element={<Film />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

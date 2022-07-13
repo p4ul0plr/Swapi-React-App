@@ -1,8 +1,8 @@
 import { USER } from "../constants";
 
 const isAuthenticated = () => {
-  const username = JSON.parse(localStorage.getItem("username") || "");
-  const password = JSON.parse(localStorage.getItem("password") || "");
+  const username = JSON.parse(localStorage.getItem("username") || "teste");
+  const password = JSON.parse(localStorage.getItem("password") || "teste");
 
   return username == USER.USERNAME && password == USER.PASSWORD;
 };

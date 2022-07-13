@@ -7,32 +7,34 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Loader from "../components/Loader";
 import { Container } from "../components/Container";
+import Page from "../components/Page";
 
 function Home() {
   const { films, isFeching } = useFatchFilmList();
 
   return (
     <Fragment>
-      <Header />
-      <Body>
+      <Page>
         {isFeching ? (
           <Loader />
         ) : (
-          <Grid>
-            {films?.map((film, index) => {
-              return (
-                <FilmCard
-                  key={index}
-                  $id={film.id}
-                  $description={film.description}
-                  $title={film.title}
-                />
-              );
-            })}
-          </Grid>
+          <ul>
+            <Grid>
+              {films?.map((film, index) => {
+                return (
+                  <li key={index}>
+                    <FilmCard
+                      $id={film.id}
+                      $description={film.description}
+                      $title={film.title}
+                    />
+                  </li>
+                );
+              })}
+            </Grid>
+          </ul>
         )}
-      </Body>
-      <Footer />
+      </Page>
     </Fragment>
   );
 }

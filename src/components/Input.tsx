@@ -13,7 +13,7 @@ const Input = styled.input.attrs((props: InputProps) => ({
 }))<InputProps>`
   background-color: ${colors.INPUT_BACKGROUND};
   border-radius: 3px;
-  width: 100%;
+  /* width: 100%; */
   font-size: ${sizes.XS};
   color: ${colors.TITLE_2};
   padding: 5px 10px;

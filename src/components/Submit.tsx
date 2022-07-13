@@ -17,7 +17,7 @@ const Submit = styled.input.attrs((props: SubmitProps) => ({
   color: ${colors.WHITE};
   border: none;
   background-color: ${colors.TERCIARY};
-  width: 100%;
+  /* width: 100%; */
   padding: 10px;
   cursor: pointer;
 `;

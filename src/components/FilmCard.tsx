@@ -21,7 +21,7 @@ interface FilmCardProps {
   $description: string;
 }
 
-const getFilmImage = (id: number) => {
+const getFilmCover = (id: number) => {
   switch (id) {
     case 1:
       return epi1;
@@ -47,7 +47,7 @@ const Image = styled.div<ImageProps>`
   height: 100%;
 `;
 
-const FilmCardStyle = styled.li`
+const FilmCardStyle = styled.div`
   background-color: ${colors.SECONDARY};
   border: 1px solid ${colors.BORDER};
 `;
@@ -119,7 +119,7 @@ function FilmCard({ $id, $title, $description }: FilmCardProps) {
       <Row>
         <Row $maxWidth="30%">
           <ImagaCardStyle>
-            <Image $backgroundImage={getFilmImage($id)} />
+            <Image $backgroundImage={getFilmCover($id)} />
           </ImagaCardStyle>
         </Row>
         <Row $maxWidth="70%">

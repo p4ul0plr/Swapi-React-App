@@ -1,4 +1,6 @@
-import { MovieDetailType } from "../interfaces/api";
+import { MovieDetailType } from "../api/interfaces";
+
+export const BASE_URL = "https://swapi.dev/api/films/";
 
 export const USER = {
   USERNAME: "admin",

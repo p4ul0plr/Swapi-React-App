@@ -26,6 +26,7 @@ const Padding = styled.div<PaddingProps>`
     if ($bottom) return "padding-bottom: " + $bottom + ";";
   }}
   display: flex;
+  flex-direction: column;
 `;
 
 export default Padding;

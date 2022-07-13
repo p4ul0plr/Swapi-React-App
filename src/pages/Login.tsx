@@ -13,16 +13,20 @@ import MyContext from "../contexts/MyContext";
 import isAuthenticated from "../contexts/auth";
 import { Container } from "../components/Container";
 import { Alignment } from "../components/Alignment";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 function Login() {
   const [submit, setSubmit] = useState<boolean>(false);
-  const { userName, setUserName, password, setPassword }: any =
-    useContext(MyContext);
+  // const { userName, setUserName, password, setPassword }: any =
+  //   useContext(MyContext);
   const logged: boolean = isAuthenticated();
+  const [username, setUsername] = useLocalStorage<string>("username", "");
+  const [password, setPassword] = useLocalStorage<string>("password", "");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (logged) {
+
+    if (isAuthenticated()) {
       setSubmit(true);
     } else {
       alert("Username or password is incorrect!");
@@ -31,7 +35,7 @@ function Login() {
 
   return (
     <Fragment>
-      {logged && submit && <Navigate to="/home" replace={true} />}
+      {isAuthenticated() && submit && <Navigate to="/home" replace={true} />}
       <GalaxyBackground>
         <Margin $all="20px">
           <LoginCard>
@@ -46,9 +50,9 @@ function Login() {
             <form onSubmit={handleSubmit}>
               <Margin $top="30px">
                 <Input
-                  value={userName}
+                  value={username}
                   onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                    setUserName(event.target.value)
+                    setUsername(event.target.value)
                   }
                   $placeholder="USERNAME"
                   $type="text"

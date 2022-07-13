@@ -24,17 +24,17 @@ interface FilmCardProps {
 const getFilmCover = (id: number) => {
   switch (id) {
     case 1:
-      return epi1;
-    case 2:
-      return epi2;
-    case 3:
-      return epi3;
-    case 4:
       return epi4;
-    case 5:
+    case 2:
       return epi5;
-    case 6:
+    case 3:
       return epi6;
+    case 4:
+      return epi1;
+    case 5:
+      return epi2;
+    case 6:
+      return epi3;
   }
 };
 

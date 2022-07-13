@@ -1,37 +1,34 @@
-import { useEffect, useState } from "react";
+import { MovieDetailType } from "../api/interfaces";
+import { BackgroundImage } from "./BackgroundImage";
+import { colors } from "../styles/themes/colors";
+import { Column } from "./Column";
+import { sizes } from "../styles/themes/sizes";
+import { Row } from "./Row";
 import styled from "styled-components";
+import Margin from "./Margin";
+import Info from "./Film/Info";
+import Text from "./Text";
 import epi1 from "../assets/images/covers/epi1.jpeg";
 import epi2 from "../assets/images/covers/epi2.jpeg";
 import epi3 from "../assets/images/covers/epi3.jpeg";
 import epi4 from "../assets/images/covers/epi4.jpeg";
 import epi5 from "../assets/images/covers/epi5.jpeg";
 import epi6 from "../assets/images/covers/epi6.jpeg";
-import { MovieDetailType } from "../interfaces/api";
-import { colors } from "../styles/themes/colors";
-import { sizes } from "../styles/themes/sizes";
-import { BackgroundImage } from "./BackgroundImage";
-import { Column } from "./Column";
-import { Container } from "./Container";
-import Info from "./Film/Info";
-import Margin from "./Margin";
-import Padding from "./Padding";
-import { Row } from "./Row";
-import Text from "./Text";
 
-const getFilmCover = (id: number) => {
+const getFilmCover = (id: number | null) => {
   switch (id) {
     case 1:
-      return epi1;
-    case 2:
-      return epi2;
-    case 3:
-      return epi3;
-    case 4:
       return epi4;
-    case 5:
+    case 2:
       return epi5;
-    case 6:
+    case 3:
       return epi6;
+    case 4:
+      return epi1;
+    case 5:
+      return epi2;
+    case 6:
+      return epi3;
   }
 };
 

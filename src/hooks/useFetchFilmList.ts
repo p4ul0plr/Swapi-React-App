@@ -1,22 +1,34 @@
-import { FilmResponse, FilmsResponse, MovieDataType } from "../interfaces/api";
-import { BASE_URL } from "../api";
-import { useFatch } from "./useFetch";
+import { useState, useEffect } from "react";
+import { getAllFilms } from "../api";
+import { MovieDataType } from "../api/interfaces";
 
-export function useFatchFilmList() {
-  const { data: filmsResponse, isFeching } = useFatch<FilmsResponse>(BASE_URL);
+export type useFetchFilmListType = {
+  isFeching: boolean;
+  data: MovieDataType[];
+};
 
-  const getIdFromUrl = (url: string) => {
-    return Number(url.split("/").filter(Boolean).pop());
+export default function useFetchFilmList(): useFetchFilmListType {
+  const [data, setData] = useState<MovieDataType[]>([]);
+  const [isFeching, setIsFeching] = useState<boolean>(true);
+
+  useEffect(() => {
+    let mounted = true;
+    const fetchData = async () => {
+      const data = await getAllFilms();
+      if (mounted) {
+        setData(data);
+        setIsFeching(false);
+      }
+    };
+
+    fetchData();
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  return {
+    data,
+    isFeching,
   };
-
-  const results: FilmResponse[] | undefined = filmsResponse?.results;
-
-  const films: MovieDataType[] | undefined = results?.map((film) => ({
-    id: getIdFromUrl(film.url),
-    title: film.title,
-    description: film.opening_crawl,
-    releaseDate: film.release_date,
-  }));
-
-  return { films, isFeching };
 }

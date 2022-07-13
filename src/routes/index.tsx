@@ -32,7 +32,11 @@ function RoutesApp() {
           />
           <Route
             path="/films/:id"
-            element={isAuthenticated() ? <Film /> : <Login />}
+            element={
+              <PrivateRoute>
+                <Film />
+              </PrivateRoute>
+            }
           />
         </Routes>
       </Suspense>

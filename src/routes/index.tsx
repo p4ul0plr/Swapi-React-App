@@ -1,12 +1,5 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-  Outlet,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
-import isAuthenticated from "../contexts/auth";
 import PrivateRoute from "./PrivateRoute";
 
 const Loader = lazy(() => import("../components/Loader"));

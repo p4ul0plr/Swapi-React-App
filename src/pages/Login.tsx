@@ -1,4 +1,4 @@
-import { Fragment, useState, useContext } from "react";
+import { Fragment, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { colors } from "../styles/themes/colors";
 import { sizes } from "../styles/themes/sizes";
@@ -9,17 +9,12 @@ import Submit from "../components/Submit";
 import Margin from "../components/Margin";
 import Input from "../components/Input";
 import Text from "../components/Text";
-import MyContext from "../contexts/MyContext";
 import isAuthenticated from "../contexts/auth";
-import { Container } from "../components/Container";
 import { Alignment } from "../components/Alignment";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 function Login() {
   const [submit, setSubmit] = useState<boolean>(false);
-  // const { userName, setUserName, password, setPassword }: any =
-  //   useContext(MyContext);
-  const logged: boolean = isAuthenticated();
   const [username, setUsername] = useLocalStorage<string>("username", "");
   const [password, setPassword] = useLocalStorage<string>("password", "");
 

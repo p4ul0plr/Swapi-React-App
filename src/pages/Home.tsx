@@ -1,16 +1,12 @@
-import { useFatchFilmList } from "../hooks/useFetchFilmList";
 import { Fragment } from "react";
-import Body from "../components/Body";
 import { Grid } from "../components/Grid";
+import useFetchFilmList from "../hooks/useFetchFilmList";
 import FilmCard from "../components/FilmCard";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Loader from "../components/Loader";
-import { Container } from "../components/Container";
 import Page from "../components/Page";
 
 function Home() {
-  const { films, isFeching } = useFatchFilmList();
+  const { data: films, isFeching } = useFetchFilmList();
 
   return (
     <Fragment>

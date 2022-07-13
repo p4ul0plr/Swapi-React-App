@@ -5,7 +5,6 @@ import { Alignment } from "./Alignment";
 import { Column } from "./Column";
 import IconsList from "./IconsList";
 import Margin from "./Margin";
-import { Row } from "./Row";
 import Text from "./Text";
 
 export const FooterStyle = styled.footer`

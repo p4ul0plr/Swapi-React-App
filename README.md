@@ -23,3 +23,8 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](https://vitejs.dev) for more information.
+
+Layout on Figma: https://www.figma.com/file/w3wGSnYt7dcmArMsBdHPee/Swapi-React-App
+
+username: admin
+password: Admin123!
